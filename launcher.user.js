@@ -1089,8 +1089,6 @@ console.log("Running Bot Launcher!");
                 if (null == A)
                     for (a.font = "20px Ubuntu", b = 0; b < F.length; ++b) {
                       c = F[b].name || Z("unnamed_cell"), wa || (c = Z("unnamed_cell")), -1 != M.indexOf(F[b].id) ? (k[0].name && (c = k[0].name), a.fillStyle = "#FFAAAA") : a.fillStyle = "#FFFFFF", c = b + 1 + ". " + c, a.fillText(c, 100 - a.measureText(c).width / 2, 70 + 24 * b);
-                      console.log(":c: " + c)
-                      console.log(":F[b].name: " + F[b].name)
                     }
                 else
                     for (b = c = 0; b < A.length; ++b) {
@@ -1196,6 +1194,7 @@ console.log("Running Bot Launcher!");
 
     function Eb(a) {
         a = a.split("\n");
+        console('>> ' + a[0])
         jb({
             name: a[0],
             ta: a[1],
