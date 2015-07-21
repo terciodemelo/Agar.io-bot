@@ -8,6 +8,7 @@
 // ==/UserScript==
 
 var aposLauncherVersion = 3.052;
+var players = {}
 
 Number.prototype.mod = function(n) {
     return ((this % n) + n) % n;
@@ -1907,7 +1908,10 @@ console.log("Running Bot Launcher!");
                     B: function(a) {
                         if (this.name = a) null ==
                             this.o ? this.o = new va(this.l(), "#FFFFFF", !0, "#000000") : this.o.M(this.l()), this.o.C(this.name)
-                        console.log('{\"name\": \"'+ a +'\", \"region\": \"'+ window.jQuery('#region').val() + '\"}');
+                        var region = window.jQuery('#region').val()
+                        console.log('{\"name\": \"'+ a +'\", \"region\": \"'+ region + '\"}');
+                        if(players[region]) players[region].push(a)
+                        else players[region] = [a]
                     },
                     W: function() {
                         for (var a = this.I(); this.a.length > a;) {
