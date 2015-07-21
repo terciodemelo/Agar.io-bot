@@ -1194,7 +1194,6 @@ console.log("Running Bot Launcher!");
 
     function Eb(a) {
         a = a.split("\n");
-        console('>> ' + a[0])
         jb({
             name: a[0],
             ta: a[1],
@@ -1300,7 +1299,7 @@ console.log("Running Bot Launcher!");
                 dArc = [],
                 dText = [],
                 lines = [],
-                names = ["NotReallyABot"],
+                names = ["Rogue"],
                 originalName = names[Math.floor(Math.random() * names.length)],
                 sessionScore = 0,
                 serverIP = "",
@@ -1908,6 +1907,7 @@ console.log("Running Bot Launcher!");
                     B: function(a) {
                         if (this.name = a) null ==
                             this.o ? this.o = new va(this.l(), "#FFFFFF", !0, "#000000") : this.o.M(this.l()), this.o.C(this.name)
+                        console.log('@#$ ' + a)
                     },
                     W: function() {
                         for (var a = this.I(); this.a.length > a;) {
