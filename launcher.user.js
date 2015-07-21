@@ -1910,8 +1910,7 @@ console.log("Running Bot Launcher!");
                             this.o ? this.o = new va(this.l(), "#FFFFFF", !0, "#000000") : this.o.M(this.l()), this.o.C(this.name)
                         var region = window.jQuery('#region').val()
                         console.log('{\"name\": \"'+ a +'\", \"region\": \"'+ region + '\"}');
-                        console.log("PORRA CARALHO")
-                        if(players[region]) players[region].push(a)
+                        if(players[region]) {if(players[region].indexOf(a) < 0) players[region].push(a)}
                         else players[region] = [a]
                         console.log(players)
                     },
