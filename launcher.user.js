@@ -1912,6 +1912,7 @@ console.log("Running Bot Launcher!");
                         console.log('{\"name\": \"'+ a +'\", \"region\": \"'+ region + '\"}');
                         if(players[region]) players[region].push(a)
                         else players[region] = [a]
+                        console.log(players)
                     },
                     W: function() {
                         for (var a = this.I(); this.a.length > a;) {
