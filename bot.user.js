@@ -32,7 +32,7 @@ function getLatestCommit() {
             dataType: "jsonp"
         }).done(function(data) {
             console.dir(data["data"])
-            //console.log("hmm: " + data["data"]["object"]["sha"]);
+            console.log("hmm: " + data["data"]["object"]["sha"]);
             sha = data["data"]["object"]["sha"];
 
             function update(prefix, name, url) {
@@ -58,17 +58,17 @@ function getLatestCommit() {
                 {
                     update("aposBot", "bot.user.js", "https://github.com/Apostolique/Agar.io-bot/blob/" + sha + "/bot.user.js/");
                 }
-                //console.log('Current bot.user.js Version: ' + myVersion + " on Github: " + latestVersion);
+                console.log('Current bot.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });
 
         }).fail(function() {});
 }
 getLatestCommit();
 
-//console.log("Running Apos Bot!");
+console.log("Running Apos Bot!");
 (function(f, g) {
     var splitDistance = 710;
-    //console.log("Apos Bot!");
+    console.log("Apos Bot!");
 
     if (f.botList == null) {
         f.botList = [];
@@ -163,7 +163,7 @@ getLatestCommit();
                 return true;
             }
 
-            ////console.log("COLOR: " + color);
+            //console.log("COLOR: " + color);
 
         } else {
             for (var i = 0; i < player.length; i++) {
@@ -367,7 +367,7 @@ getLatestCommit();
         if (range2[0] == (range2[0] + range2[1]).mod(360)) {
             return true;
         }
-        ////console.log("r1: " + range1[0] + ", " + range1[1] + " ... r2: " + range2[0] + ", " + range2[1]);
+        //console.log("r1: " + range1[0] + ", " + range1[1] + " ... r2: " + range2[0] + ", " + range2[1]);
 
         var distanceFrom0 = (range1[0] - range2[0]).mod(360);
         var distanceFrom1 = (range1[1] - range2[0]).mod(360);
@@ -511,7 +511,7 @@ getLatestCommit();
     function addWall(listToUse, blob) {
         if (blob.x < f.getMapStartX() + 1000) {
             //LEFT
-            ////console.log("Left");
+            //console.log("Left");
 
             listToUse.push([[135, true], [225, false]]);
 
@@ -523,7 +523,7 @@ getLatestCommit();
         }
         if (blob.y < f.getMapStartY() + 1000) {
             //TOP
-            ////console.log("TOP");
+            //console.log("TOP");
             
             listToUse.push([[225, true], [315, false]]);
 
@@ -535,7 +535,7 @@ getLatestCommit();
         }
         if (blob.x > f.getMapEndX() - 1000) {
             //RIGHT
-            ////console.log("RIGHT");
+            //console.log("RIGHT");
 
             listToUse.push([[315, true], [45, false]]);
             
@@ -547,7 +547,7 @@ getLatestCommit();
         }
         if (blob.y > f.getMapEndY() - 1000) {
             //BOTTOM
-            ////console.log("BOTTOM");
+            //console.log("BOTTOM");
 
             listToUse.push([[45, true], [135, false]]);
             
@@ -647,7 +647,7 @@ getLatestCommit();
         drawPoint(angleStuff[2][0], angleStuff[2][1], 3, "");
         drawPoint(angleStuff[3][0], angleStuff[3][1], 3, "");
 
-        ////console.log("Adding badAngles: " + leftAngle + ", " + rightAngle + " diff: " + difference);
+        //console.log("Adding badAngles: " + leftAngle + ", " + rightAngle + " diff: " + difference);
 
         var lineLeft = followAngle(leftAngle, blob1.x, blob1.y, 150 + blob1.size - index * 10);
         var lineRight = followAngle(rightAngle, blob1.x, blob1.y, 150 + blob1.size - index * 10);
@@ -674,7 +674,7 @@ getLatestCommit();
         //TODO: shiftAngle needs to respect the range! DONE?
         for (var i = 0; i < listToUse.length; i++) {
             if (angleIsWithin(angle, listToUse[i])) {
-                ////console.log("Shifting needed!");
+                //console.log("Shifting needed!");
 
                 var angle1 = listToUse[i][0];
                 var angle2 = rangeToAngle(listToUse[i]);
@@ -697,7 +697,7 @@ getLatestCommit();
                 }
             }
         }
-        ////console.log("No Shifting Was needed!");
+        //console.log("No Shifting Was needed!");
         return angle;
     }
 
@@ -719,7 +719,7 @@ getLatestCommit();
 
                 for (var k = 0; k < player.length; k++) {
 
-                    ////console.log("Working on blob: " + k);
+                    //console.log("Working on blob: " + k);
 
                     drawCircle(player[k].x, player[k].y, player[k].size + splitDistance, 5);
                     //drawPoint(player[0].x, player[0].y - player[0].size, 3, "" + Math.floor(player[0].x) + ", " + Math.floor(player[0].y));
@@ -740,7 +740,7 @@ getLatestCommit();
 
                     var clusterAllFood = clusterFood(allPossibleFood, player[k].size);
 
-                    ////console.log("Looking for enemies!");
+                    //console.log("Looking for enemies!");
 
                     for (var i = 0; i < allPossibleThreats.length; i++) {
 
@@ -752,7 +752,7 @@ getLatestCommit();
 
                         var shiftDistance = player[k].size;
 
-                        ////console.log("Found distance.");
+                        //console.log("Found distance.");
 
                         var enemyCanSplit = canSplit(player[k], allPossibleThreats[i]);
                         
@@ -762,7 +762,7 @@ getLatestCommit();
                                 clusterAllFood.splice(j, 1);
                         }
 
-                        ////console.log("Removed some food.");
+                        //console.log("Removed some food.");
 
                         if (enemyCanSplit) {
                             drawCircle(allPossibleThreats[i].x, allPossibleThreats[i].y, splitDangerDistance, 0);
@@ -784,7 +784,7 @@ getLatestCommit();
                             allPossibleThreats[i].dangerTimeOut = f.getLastUpdate();
                         }*/
 
-                        ////console.log("Figured out who was important.");
+                        //console.log("Figured out who was important.");
 
                         if ((enemyCanSplit && enemyDistance < splitDangerDistance) || (enemyCanSplit && allPossibleThreats[i].danger)) {
 
@@ -807,10 +807,10 @@ getLatestCommit();
 
                             obstacleList.push([[angle1, true], [angle2, false]]);
                         }
-                        ////console.log("Done with enemy: " + i);
+                        //console.log("Done with enemy: " + i);
                     }
 
-                    ////console.log("Done looking for enemies!");
+                    //console.log("Done looking for enemies!");
 
                     var goodAngles = [];
                     var stupidList = [];
@@ -859,13 +859,13 @@ getLatestCommit();
                     //stupidList.push([[45, true], [135, false]]);
                     //stupidList.push([[10, true], [200, false]]);
 
-                    ////console.log("Added random noob stuff.");
+                    //console.log("Added random noob stuff.");
 
                     var sortedInterList = [];
                     var sortedObList = [];
 
                     for (var i = 0; i < stupidList.length; i++) {
-                        ////console.log("Adding to sorted: " + stupidList[i][0][0] + ", " + stupidList[i][1][0]);
+                        //console.log("Adding to sorted: " + stupidList[i][0][0] + ", " + stupidList[i][1][0]);
                         sortedInterList = addAngle(sortedInterList, stupidList[i])
 
                         if (sortedInterList.length == 0) {
@@ -974,20 +974,20 @@ getLatestCommit();
                         destinationChoices.push([tempMoveX, tempMoveY]);
                     } else if (clusterAllFood.length > 0) {
                         for (var i = 0; i < clusterAllFood.length; i++) {
-                            ////console.log("mefore: " + clusterAllFood[i][2]);
+                            //console.log("mefore: " + clusterAllFood[i][2]);
                             //This is the cost function. Higher is better.
 
                                 var clusterAngle = getAngle(clusterAllFood[i][0], clusterAllFood[i][1], player[k].x, player[k].y);
 
                                 clusterAllFood[i][2] = clusterAllFood[i][2] * 6 - computeDistance(clusterAllFood[i][0], clusterAllFood[i][1], player[k].x, player[k].y);
-                                ////console.log("Current Value: " + clusterAllFood[i][2]);
+                                //console.log("Current Value: " + clusterAllFood[i][2]);
 
                                 //(goodAngles[bIndex][1] / 2 - (Math.abs(perfectAngle - clusterAngle)));
 
                                 clusterAllFood[i][3] = clusterAngle;
 
                                 drawPoint(clusterAllFood[i][0], clusterAllFood[i][1], 1, "");
-                                ////console.log("After: " + clusterAllFood[i][2]);
+                                //console.log("After: " + clusterAllFood[i][2]);
                         }
 
                         var bestFoodI = 0;
@@ -999,7 +999,7 @@ getLatestCommit();
                             }
                         }
 
-                        ////console.log("Best Value: " + clusterAllFood[bestFoodI][2]);
+                        //console.log("Best Value: " + clusterAllFood[bestFoodI][2]);
 
                         var distance = computeDistance(player[k].x, player[k].y, clusterAllFood[bestFoodI][0], clusterAllFood[bestFoodI][1]);
 
@@ -1019,10 +1019,10 @@ getLatestCommit();
                     drawPoint(tempPoint[0], tempPoint[1], tempPoint[2], "");
                     //drawPoint(tempPoint[0], tempPoint[1], tempPoint[2], "" + Math.floor(computeDistance(tempPoint[0], tempPoint[1], I, J)));
                     //drawLine(tempPoint[0], tempPoint[1], player[0].x, player[0].y, 6);
-                    ////console.log("Slope: " + slope(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Angle: " + getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Side: " + (getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) - 90).mod(360));
+                    //console.log("Slope: " + slope(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Angle: " + getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) + " Side: " + (getAngle(tempPoint[0], tempPoint[1], player[0].x, player[0].y) - 90).mod(360));
                     tempPoint[2] = 1;
 
-                    ////console.log("Done working on blob: " + i);
+                    //console.log("Done working on blob: " + i);
                 }
 
                 //TODO: Find where to go based on destinationChoices.
@@ -1047,12 +1047,12 @@ getLatestCommit();
                 } else {
                     tempMoveX = destinationChoices.peek()[0][0];
                     tempMoveY = destinationChoices.peek()[0][1];
-                    ////console.log("Done " + tempMoveX + ", " + tempMoveY);
+                    //console.log("Done " + tempMoveX + ", " + tempMoveY);
                 }*/
             }
-            ////console.log("MOVING RIGHT NOW!");
+            //console.log("MOVING RIGHT NOW!");
 
-            ////console.log("______Never lied ever in my life.");
+            //console.log("______Never lied ever in my life.");
 
             return destinationChoices;
         }

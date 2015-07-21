@@ -25,7 +25,7 @@ function getLatestCommit() {
             dataType: "jsonp"
         }).done(function(data) {
             console.dir(data["data"])
-            //console.log("hmm: " + data["data"]["object"]["sha"]);
+            console.log("hmm: " + data["data"]["object"]["sha"]);
             sha = data["data"]["object"]["sha"];
 
             function update(prefix, name, url) {
@@ -50,29 +50,29 @@ function getLatestCommit() {
                 if (latestVersion > myVersion) {
                     update("aposLauncher", "launcher.user.js", "https://github.com/Apostolique/Agar.io-bot/blob/" + sha + "/launcher.user.js/");
                 }
-                //console.log('Current launcher.user.js Version: ' + myVersion + " on Github: " + latestVersion);
+                console.log('Current launcher.user.js Version: ' + myVersion + " on Github: " + latestVersion);
             });
 
         }).fail(function() {});
 }
 getLatestCommit();
 
-//console.log("Running Bot Launcher!");
+console.log("Running Bot Launcher!");
 (function(d, e) {
 
     //UPDATE
     function keyAction(e) {
         if (84 == e.keyCode) {
-            //console.log("Toggle");
+            console.log("Toggle");
             toggle = !toggle;
         }
         if (82 == e.keyCode) {
-            //console.log("ToggleDraw");
+            console.log("ToggleDraw");
             toggleDraw = !toggleDraw;
         }
         if (83 == e.keyCode) {
             selectedCell = (selectedCell + 1).mod(getPlayer().length + 1);
-            //console.log("Next Cell " + selectedCell);
+            console.log("Next Cell " + selectedCell);
         }
         if (68 == e.keyCode) {
             window.setDarkTheme(!getDarkBool());
@@ -91,7 +91,7 @@ getLatestCommit();
             }
         }
         if (81 == e.keyCode) {
-            //console.log("ToggleFollowMouse");
+            console.log("ToggleFollowMouse");
             toggleFollow = !toggleFollow;
         }
     }
@@ -304,7 +304,7 @@ getLatestCommit();
 
     function Za() {
         var a = ++Ba;
-        //console.log("Find " + y + P);
+        console.log("Find " + y + P);
         e.ajax("https://m.agar.io/", {
             error: function() {
                 setTimeout(Za, 1E3)
@@ -355,14 +355,14 @@ getLatestCommit();
         z = A = null;
         R = 0;
         $ = !1;
-        //console.log("Connecting to " + a);
+        console.log("Connecting to " + a);
         //UPDATE
         serverIP = a;
         q = new WebSocket(a);
         q.binaryType = "arraybuffer";
         q.onopen = function() {
             var a;
-            //console.log("socket open");
+            console.log("socket open");
             a = N(5);
             a.setUint8(0, 254);
             a.setUint32(1, 4, !0);
@@ -380,7 +380,7 @@ getLatestCommit();
         q.onmessage = ub;
         q.onclose = vb;
         q.onerror = function() {
-            //console.log("socket error")
+            console.log("socket error")
         }
     }
 
@@ -394,7 +394,7 @@ getLatestCommit();
 
     function vb() {
         $ && (ma = 500);
-        //console.log("socket close");
+        console.log("socket close");
         setTimeout(I, ma);
         ma *= 2
     }
@@ -554,7 +554,7 @@ getLatestCommit();
 
         //UPDATE
         Object.keys(interNodes).forEach(function(element, index) {
-            ////console.log("start: " + interNodes[element].updateTime + " current: " + D + " life: " + (D - interNodes[element].updateTime));
+            //console.log("start: " + interNodes[element].updateTime + " current: " + D + " life: " + (D - interNodes[element].updateTime));
             var isRemoved = !window.getCells().hasOwnProperty(element);
 
             if (isRemoved && (window.getLastUpdate() - interNodes[element].getUptimeTime()) > 3000) {
@@ -632,12 +632,12 @@ getLatestCommit();
 
         //UPDATE
         if (getPlayer().length == 0 && !reviving && ~~(getCurrentScore() / 100) > 0) {
-            //console.log("Dead: " + ~~(getCurrentScore() / 100));
+            console.log("Dead: " + ~~(getCurrentScore() / 100));
             apos('send', 'pageview');
         }
 
         if (getPlayer().length == 0) {
-            //console.log("Revive");
+            console.log("Revive");
             setNick(originalName);
             reviving = true;
         } else if (getPlayer().length > 0 && reviving) {
@@ -670,7 +670,7 @@ getLatestCommit();
     }
 
     window.opCode = function(a) {
-        //console.log("Sending op code.");
+        console.log("Sending op code.");
         H(parseInt(a));
     }
 
@@ -1819,7 +1819,7 @@ getLatestCommit();
                 }
 
                 window.setBotIndex = function(a) {
-                    //console.log("Changing bot");
+                    console.log("Changing bot");
                     botIndex = a;
                 }
 
@@ -1907,7 +1907,7 @@ getLatestCommit();
                     B: function(a) {
                         if (this.name = a) null ==
                             this.o ? this.o = new va(this.l(), "#FFFFFF", !0, "#000000") : this.o.M(this.l()), this.o.C(this.name)
-                        console.log('{name:' + a + ', region:' + $('#region').val() + '}')
+                        console.log('{name: '+ a +'}')
                     },
                     W: function() {
                         for (var a = this.I(); this.a.length > a;) {
@@ -2354,12 +2354,12 @@ window.refreshTwitch = function() {
         dataType: "jsonp"
     }).done(function(data) {
         if (data["stream"] == null) {
-            ////console.log("Apostolique is not online!");
+            //console.log("Apostolique is not online!");
             window.setMessage([]);
             window.onmouseup = function() {};
             window.ignoreStream = false;
         } else {
-            ////console.log("Apostolique is online!");
+            //console.log("Apostolique is online!");
             if (!window.ignoreStream) {
                 window.setMessage(["twitch.tv/apostolique is online right now!", "Click the screen to open the stream!", "Press E to ignore."]);
                 window.onmouseup = function() {
