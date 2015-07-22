@@ -1841,7 +1841,7 @@ console.log("Running Bot Launcher!");
                             d.requestAnimationFrame(Ua);
                             var c = Date.now(),
                                 l = c - a;
-                            l > b && (a = c - l % b, !T() || 240 > Date.now() - bb ? gb() : console.warn("Skipping draw"), Fb())
+                            l > b && (a = c - l % b, !T() || 240 > Date.now() - bb ? gb() : Fb())
                         }
                     }(),
                     U = {},
